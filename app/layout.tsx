@@ -1,4 +1,4 @@
-import { Analytics } from '@vercel/analytics/next'
+
 import type { Metadata, Viewport } from 'next'
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   title: 'Aadhith C J — Software Developer & Full Stack Engineer',
   description:
     'Portfolio of Aadhith C J, a Computer Science Engineering graduate building web, desktop, Android and AI-powered applications with React, Python, Kotlin and computer vision.',
-  generator: 'v0.app',
   keywords: [
     'Aadhith C J',
     'Software Developer',
@@ -60,7 +59,6 @@ export default function RootLayout({
     <html lang="en" className="bg-background">
       <body className="antialiased">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )

@@ -7,21 +7,26 @@ import { Plus, Minus, Star } from "lucide-react"
 
 export default function ProjectsSection() {
   const [openId, setOpenId] = useState<string | null>(projects[0].id)
+  const [hoveredId, setHoveredId] = useState<string | null>(null)
 
   return (
     <section id="work" className="border-b-[3px] border-border">
       <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-        <SectionHeading index="02" title="Work" kicker="Concept to deployment" />
+        <SectionHeading index="03" title="Work" kicker="Concept to deployment" />
 
         <ul className="mt-8 grid gap-5">
           {projects.map((project) => {
             const open = openId === project.id
+            const hovered = hoveredId === project.id
             return (
               <li key={project.id}>
                 <article
-                  className={`nb-border nb-shadow ${project.flagship ? "bg-primary" : "bg-card"} ${
+                  className={`nb-border nb-shadow transition-colors duration-300 ${project.flagship && !hovered ? "bg-primary" : "bg-card"} ${
                     open ? "" : "nb-press"
                   }`}
+                  style={{ backgroundColor: hovered ? project.accent : undefined, color: hovered ? "#0a0a0a" : undefined }}
+                  onMouseEnter={() => setHoveredId(project.id)}
+                  onMouseLeave={() => setHoveredId(null)}
                 >
                   <button
                     type="button"

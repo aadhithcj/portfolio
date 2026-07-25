@@ -1,7 +1,7 @@
 "use client"
 
 import SectionHeading from "@/components/section-heading"
-import Magnet from "@/components/fx/magnet"
+
 import { contact, profile } from "@/lib/portfolio-data"
 import { Mail, GitBranch, Briefcase, FileText, ArrowUpRight } from "lucide-react"
 
@@ -38,7 +38,6 @@ export default function ContactSection() {
               const disabled = !link.href
               return (
                 <li key={link.key}>
-                  <Magnet padding={60} magnetStrength={6} wrapperClassName="w-full">
                     {disabled ? (
                       <span className="nb-border flex w-full items-center gap-3 bg-muted px-4 py-4 font-mono text-sm font-bold uppercase tracking-wide text-muted-foreground">
                         <Icon className="size-4" />
@@ -57,7 +56,6 @@ export default function ContactSection() {
                         <ArrowUpRight className="ml-auto size-4" />
                       </a>
                     )}
-                  </Magnet>
                 </li>
               )
             })}
@@ -67,9 +65,16 @@ export default function ContactSection() {
 
       <footer className="border-t-[3px] border-border bg-card">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-6">
-          <p className="font-mono text-[11px] font-bold uppercase tracking-widest">
-            © {new Date().getFullYear()} {profile.name}
-          </p>
+          <div className="flex flex-col gap-2">
+            <p className="font-mono text-[11px] font-bold uppercase tracking-widest">
+              © {new Date().getFullYear()} {profile.name}
+            </p>
+            <div className="flex gap-2">
+              {['#0A0A0A', '#FFD60A', '#FF3B3B', '#0066FF', '#00C853', '#f7f0dd'].map((c) => (
+                <span key={c} className="size-3 border-[2px] border-border" style={{ background: c }} />
+              ))}
+            </div>
+          </div>
           <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
             Built with Next.js · React · Tailwind CSS
           </p>

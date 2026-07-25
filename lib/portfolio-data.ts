@@ -59,6 +59,7 @@ export type Project = {
   tech: string[]
   note?: string
   flagship?: boolean
+  accent: string
 }
 
 export const projects: Project[] = [
@@ -80,6 +81,7 @@ export const projects: Project[] = [
     tech: ["Kotlin", "Jetpack Compose", "TensorFlow Lite", "YOLOv8", "EfficientDet Lite", "Google ML Kit", "OpenCV"],
     note: "Flagship academic project — multiple AI models integrated into one mobile app with accessibility as the core requirement.",
     flagship: true,
+    accent: "#FFD60A",
   },
   {
     id: "cv-management",
@@ -95,6 +97,7 @@ export const projects: Project[] = [
       "Reporting Dashboard",
     ],
     tech: ["React", "Vite", "Supabase", "PostgreSQL"],
+    accent: "#FF3B3B",
   },
   {
     id: "motorbike",
@@ -104,6 +107,7 @@ export const projects: Project[] = [
     blurb: "A desktop software solution designed for motorcycle dealerships to run daily operations.",
     features: ["Inventory Management", "Billing", "Purchase Management", "Customer Records", "Database Management"],
     tech: ["Python", "PyQt6", "SQLite"],
+    accent: "#0066FF",
   },
   {
     id: "crop",
@@ -113,6 +117,7 @@ export const projects: Project[] = [
     blurb: "A machine learning powered agricultural web application for data-driven crop decisions.",
     features: ["Crop Recommendation", "Rainfall Analysis", "Crop Prediction", "Yield Prediction", "Interactive Maps"],
     tech: ["React", "Flask", "Machine Learning"],
+    accent: "#00C853",
   },
   {
     id: "lineplanner",
@@ -122,6 +127,7 @@ export const projects: Project[] = [
     blurb: "A web application developed for garment manufacturing production planning.",
     features: ["Production Line Planning", "Capacity Planning", "Interactive Layout Management"],
     tech: ["React", "Web Technologies"],
+    accent: "#FF7A00",
   },
 ]
 
@@ -155,6 +161,5 @@ export const sections = [
   { id: "skills", label: "Skills" },
   { id: "work", label: "Work" },
   { id: "terminal", label: "Terminal" },
-  { id: "arcade", label: "Arcade" },
   { id: "contact", label: "Contact" },
 ]
