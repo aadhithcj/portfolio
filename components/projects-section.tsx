@@ -1,5 +1,5 @@
 "use client"
-
+import { AnimatePresence, motion } from "motion/react"
 import { useState } from "react"
 import SectionHeading from "@/components/section-heading"
 import { projects } from "@/lib/portfolio-data"
@@ -20,11 +20,20 @@ export default function ProjectsSection() {
             const hovered = hoveredId === project.id
             return (
               <li key={project.id}>
-                <article
-                  className={`nb-border nb-shadow transition-colors duration-300 ${project.flagship && !hovered ? "bg-primary" : "bg-card"} ${
-                    open ? "" : "nb-press"
-                  }`}
-                  style={{ backgroundColor: hovered ? project.accent : undefined, color: hovered ? "#0a0a0a" : undefined }}
+                <motion.article
+                  layout
+                  transition={{
+                    layout: {
+                      duration: 0.18,
+                      ease: "easeOut",
+                    },
+                  }}
+                  className={`nb-border nb-shadow transition-colors duration-300 ${project.flagship && !hovered ? "bg-primary" : "bg-card"} ${open ? "" : "nb-press"
+                    }`}
+                  style={{
+                    backgroundColor: hovered ? project.accent : undefined,
+                    color: hovered ? "#0a0a0a" : undefined
+                  }}
                   onMouseEnter={() => setHoveredId(project.id)}
                   onMouseLeave={() => setHoveredId(null)}
                 >
@@ -57,47 +66,110 @@ export default function ProjectsSection() {
                     </span>
                   </button>
 
-                  {open && (
-                    <div className="border-t-[3px] border-border p-5">
-                      <p className="max-w-2xl text-pretty leading-relaxed">{project.blurb}</p>
+                  <AnimatePresence initial={false}>
+                    {open && (
+                      <motion.div
+                        initial={{
+                          height: 0,
+                          opacity: 0,
+                        }}
+                        animate={{
+                          height: "auto",
+                          opacity: 1,
+                        }}
+                        exit={{
+                          height: 0,
+                          opacity: 0,
+                        }}
+                        transition={{
+                          duration: 0.18,
+                          ease: "easeOut",
+                        }}
 
-                      <div className="mt-5 grid gap-5 md:grid-cols-2">
-                        <div className="nb-border bg-background p-4">
-                          <h4 className="font-mono text-[11px] font-bold uppercase tracking-widest">Features</h4>
-                          <ul className="mt-3 grid gap-2">
-                            {project.features.map((f) => (
-                              <li key={f} className="flex items-start gap-2 text-sm font-bold">
-                                <span className="mt-1.5 inline-block size-2 shrink-0 bg-accent" />
-                                {f}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                        className="overflow-hidden"
+                      >
+                        <div className="border-t-[3px] border-border p-5">
+                          <motion.p
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 }}
+                            className="max-w-2xl text-pretty leading-relaxed"
+                          >
+                            {project.blurb}
+                          </motion.p>
 
-                        <div className="nb-border bg-background p-4">
-                          <h4 className="font-mono text-[11px] font-bold uppercase tracking-widest">Tech</h4>
-                          <ul className="mt-3 flex flex-wrap gap-2">
-                            {project.tech.map((t) => (
-                              <li key={t} className="nb-border px-2 py-1 font-mono text-[11px] font-bold">
-                                {t}
-                              </li>
-                            ))}
-                          </ul>
-                          {project.note && (
-                            <p className="mt-4 border-t-[3px] border-border pt-3 text-sm leading-relaxed text-muted-foreground">
-                              {project.note}
-                            </p>
-                          )}
+                          <motion.div
+                            initial={{ opacity: 0, y: 18 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.18 }}
+                            className="mt-5 grid gap-5 md:grid-cols-2"
+                          >
+                            <div className="nb-border bg-background p-4">
+                              <h4 className="font-mono text-[11px] font-bold uppercase tracking-widest">
+                                Features
+                              </h4>
+
+                              <ul className="mt-3 grid gap-2">
+                                {project.features.map((f, index) => (
+                                  <motion.li
+                                    key={f}
+                                    initial={{ opacity: 0, x: -15 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                      delay: 0.25 + index * 0.05,
+                                    }}
+                                    className="flex items-start gap-2 text-sm font-bold"
+                                  >
+                                    <span className="mt-1.5 inline-block size-2 shrink-0 bg-accent" />
+                                    {f}
+                                  </motion.li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            <div className="nb-border bg-background p-4">
+                              <h4 className="font-mono text-[11px] font-bold uppercase tracking-widest">
+                                Tech
+                              </h4>
+
+                              <ul className="mt-3 flex flex-wrap gap-2">
+                                {project.tech.map((t, index) => (
+                                  <motion.li
+                                    key={t}
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{
+                                      delay: 0.2 + index * 0.04,
+                                    }}
+                                    className="nb-border px-2 py-1 font-mono text-[11px] font-bold"
+                                  >
+                                    {t}
+                                  </motion.li>
+                                ))}
+                              </ul>
+
+                              {project.note && (
+                                <motion.p
+                                  initial={{ opacity: 0 }}
+                                  animate={{ opacity: 1 }}
+                                  transition={{ delay: 0.45 }}
+                                  className="mt-4 border-t-[3px] border-border pt-3 text-sm leading-relaxed text-muted-foreground"
+                                >
+                                  {project.note}
+                                </motion.p>
+                              )}
+                            </div>
+                          </motion.div>
                         </div>
-                      </div>
-                    </div>
-                  )}
-                </article>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.article>
               </li>
             )
           })}
         </ul>
       </div>
-    </section>
+    </section >
   )
 }

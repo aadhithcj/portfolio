@@ -4,8 +4,26 @@ import CursorGrid from "@/components/fx/cursor-grid"
 import TextPressure from "@/components/fx/text-pressure"
 import { profile } from "@/lib/portfolio-data"
 import { ArrowDown } from "lucide-react"
+import { useState } from "react"
+import HeroStatCard from "@/components/ui/hero-stat-card"
 
 export default function Hero() {
+  const [curiosityClicks, setCuriosityClicks] = useState(0)
+  const [revealed, setRevealed] = useState(false)
+
+  function handleCuriosityClick() {
+    if (revealed) return
+
+    const next = curiosityClicks + 1
+
+    setCuriosityClicks(next)
+
+    if (next >= 5) {
+      setTimeout(() => {
+        setRevealed(true)
+      }, 150)
+    }
+  }
   return (
     <section
       id="top"
@@ -89,49 +107,46 @@ export default function Hero() {
           {/* Right Side */}
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-3">
-              {[
-                {
-                  num: "5",
-                  label: "Major Projects",
-                  bg: "#C6FF00",
-                  text: "#111111",
-                },
-                {
-                  num: "6+",
-                  label: "Tech Stacks",
-                  bg: "#FF5228",
-                  text: "#ffffff",
-                },
-                {
-                  num: "AI",
-                  label: "Powered Apps",
-                  bg: "#111111",
-                  text: "#ffffff",
-                },
-                {
-                  num: "∞",
-                  label: "Curiosity",
-                  bg: "#ffffff",
-                  text: "#111111",
-                },
-              ].map((s) => (
-                <div
-                  key={s.label}
-                  className="nb-border nb-shadow cursor-target flex flex-col justify-center p-4 text-center transition-all duration-200 hover:-translate-y-1"
-                  style={{
-                    background: s.bg,
-                    color: s.text,
-                  }}
-                >
-                  <span className="font-mono text-3xl font-bold">
-                    {s.num}
-                  </span>
+              <HeroStatCard
+                id="projects"
+                num="5"
+                label="Major Projects"
+                bg="#C6FF00"
+                text="#111111"
+                curiosityClicks={curiosityClicks}
+                revealed={revealed}
+              />
 
-                  <span className="mt-1 font-mono text-[11px] font-bold uppercase tracking-wide">
-                    {s.label}
-                  </span>
-                </div>
-              ))}
+              <HeroStatCard
+                id="tech"
+                num="6+"
+                label="Tech Stacks"
+                bg="#FF5228"
+                text="#ffffff"
+                curiosityClicks={curiosityClicks}
+                revealed={revealed}
+              />
+
+              <HeroStatCard
+                id="ai"
+                num="AI"
+                label="Powered Apps"
+                bg="#111111"
+                text="#ffffff"
+                curiosityClicks={curiosityClicks}
+                revealed={revealed}
+              />
+
+              <HeroStatCard
+                id="curiosity"
+                num="∞"
+                label="Curiosity"
+                bg="#ffffff"
+                text="#111111"
+                curiosityClicks={curiosityClicks}
+                revealed={revealed}
+                onCuriosityClick={handleCuriosityClick}
+              />
             </div>
 
             <p className="nb-border bg-card px-3 py-2 font-mono text-[11px] leading-relaxed">
