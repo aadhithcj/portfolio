@@ -1,4 +1,5 @@
 "use client"
+import { motion } from "framer-motion";
 import DecryptedText from "@/components/fx/DecryptedText";
 import { useState } from "react"
 import {
@@ -8,7 +9,7 @@ import {
 const SKILLS = [
   {
     icon: Code2, label: 'Languages',
-    items: ['Python', 'Java', 'C', 'TypeScript', 'JavaScript'],
+    items: ['Python', 'Java', 'C', 'TypeScript', 'JavaScript', 'SQL', 'Kotlin'],
     color: '#FFD60A',
   },
   {
@@ -18,7 +19,7 @@ const SKILLS = [
   },
   {
     icon: Database, label: 'Backend',
-    items: ['Flask', 'REST APIs', 'Supabase', 'PostgreSQL', 'SQLite'],
+    items: ['Flask', 'REST APIs', 'Firebase', 'PostgreSQL', 'SQLite'],
     color: '#0066FF',
   },
   {
@@ -77,15 +78,32 @@ export default function SkillsSection() {
             const Icon = skill.icon;
             const isHovered = hovered === i;
             return (
-              <div
+              <motion.div
                 key={skill.label}
-                className="border-[3px] p-6 cursor-target transition-all duration-200 bg-[#121212]"
-                style={{
-                  borderColor: isHovered ? skill.color : 'rgba(245, 240, 232, 0.15)',
-                  boxShadow: isHovered ? `6px 6px 0 0 ${skill.color}` : 'none'
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{
+                  x: -4,
+                  y: -4,
+                  transition: {
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 20,
+                  },
                 }}
-                onMouseEnter={() => setHovered(i)}
-                onMouseLeave={() => setHovered(null)}
+                viewport={{ once: true }}
+                transition={{
+                  delay: i * 0.08,
+                  duration: 0.4,
+                  ease: "easeOut",
+                }}
+                className="border-[3px] p-6 cursor-target bg-[#121212]"
+                style={{
+                  borderColor: isHovered ? skill.color : "rgba(245,240,232,0.15)",
+                  boxShadow: isHovered ? `6px 6px 0 0 ${skill.color}` : "none",
+                }}
+                onHoverStart={() => setHovered(i)}
+                onHoverEnd={() => setHovered(null)}
               >
                 <div
                   className="flex items-center gap-3 border-b-[3px] pb-3 transition-colors duration-200"
@@ -108,7 +126,7 @@ export default function SkillsSection() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

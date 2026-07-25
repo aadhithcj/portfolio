@@ -20,7 +20,7 @@ export default function SectionHeading({ index, title, kicker, lowercase }: Sect
             animateOn="view"
             sequential
             revealDirection="center"
-            speed={50}
+            speed={70}
             className="text-current"
             encryptedClassName="text-neutral-400"
           />
