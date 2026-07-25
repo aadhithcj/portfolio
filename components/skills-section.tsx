@@ -1,5 +1,5 @@
 "use client"
-
+import DecryptedText from "@/components/fx/DecryptedText";
 import { useState } from "react"
 import {
   Code2, Globe, Database, Brain, Smartphone, Wrench
@@ -44,14 +44,24 @@ export default function SkillsSection() {
   return (
     <section id="skills" className="border-b-[3px] border-border bg-foreground text-background">
       <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-        
+
         {/* Adjusted Section Heading to look like the normal headings but styled correctly for a dark bg */}
         <div className="flex flex-wrap items-end justify-between gap-4 mb-12">
           <div className="flex items-center gap-4">
             <span className="nb-border nb-shadow-sm bg-background px-3 py-1.5 font-mono text-sm font-bold text-foreground">
               02
             </span>
-            <h2 className="text-4xl font-extrabold uppercase tracking-tight md:text-5xl text-background">Skills</h2>
+            <h2 className="text-4xl font-extrabold uppercase tracking-tight md:text-5xl text-background">
+              <DecryptedText
+                text="Skills"
+                animateOn="view"
+                sequential
+                revealDirection="center"
+                speed={75}
+                className="text-current"
+                encryptedClassName="text-neutral-400"
+              />
+            </h2>
           </div>
           <p className="nb-border bg-card px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-foreground">
             The tools I reach for
@@ -77,8 +87,8 @@ export default function SkillsSection() {
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
-                <div 
-                  className="flex items-center gap-3 border-b-[3px] pb-3 transition-colors duration-200" 
+                <div
+                  className="flex items-center gap-3 border-b-[3px] pb-3 transition-colors duration-200"
                   style={{ borderColor: isHovered ? skill.color : 'rgba(245, 240, 232, 0.15)' }}
                 >
                   <Icon size={22} style={{ color: isHovered ? skill.color : '#f5f0e8' }} className="transition-colors duration-200" />
@@ -86,12 +96,12 @@ export default function SkillsSection() {
                 </div>
                 <div className="flex flex-wrap gap-2 mt-4">
                   {skill.items.map((item) => (
-                    <span 
-                      key={item} 
+                    <span
+                      key={item}
                       className="border-[3px] px-2 py-1 font-mono text-[11px] font-bold uppercase transition-all duration-200"
-                      style={{ 
-                        borderColor: isHovered ? skill.color : 'rgba(245,240,232,0.15)', 
-                        color: isHovered ? skill.color : '#b0aa9f' 
+                      style={{
+                        borderColor: isHovered ? skill.color : 'rgba(245,240,232,0.15)',
+                        color: isHovered ? skill.color : '#b0aa9f'
                       }}
                     >
                       {item}
