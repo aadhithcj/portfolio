@@ -6,9 +6,7 @@ export default function AboutSection() {
     <section id="about" className="border-b-[3px] border-border">
       <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
         <SectionHeading index="01" title="About" kicker="Who is behind the commits" />
-        <p className="mt-4 max-w-xl text-lg font-bold italic leading-relaxed">
-          "Curiosity led me here. Building things keeps me here."
-        </p>
+
         <div className="mt-8 grid gap-6 lg:grid-cols-3">
           <div className="nb-border nb-shadow bg-card p-5 lg:col-span-2">
             <p className="text-pretty text-xl font-bold leading-relaxed">
