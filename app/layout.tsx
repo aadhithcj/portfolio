@@ -35,14 +35,14 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/og-image.png',
-        width: 512,
-        height: 512,
+        width: 250, // Tells crawlers the file is under 300px
+        height: 250,
         alt: 'Aadhith C J',
       },
     ],
   },
   twitter: {
-    card: 'summary', // Ensures small thumbnail side-by-side layout
+    card: 'summary',
     title: 'Aadhith C J — Software Developer & Full Stack Engineer',
     description:
       'Web, desktop, Android and AI-powered applications built from concept to deployment.',
