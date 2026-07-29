@@ -5,12 +5,13 @@ import './globals.css'
 const _spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
 const _jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] })
 
-// SVG encoded with a white stroke (#ffffff) for dark browser tabs
+// White Bot SVG encoded for browser tab favicons
 const botSvgUri = `data:image/svg+xml,${encodeURIComponent(
   '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>'
 )}`
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://aadhithcj.vercel.app'),
   title: 'Aadhith C J — Software Developer & Full Stack Engineer',
   description:
     'Portfolio of Aadhith C J, a Computer Science Engineering graduate building web, desktop, Android and AI-powered applications with React, Python, Kotlin and computer vision.',
@@ -28,7 +29,24 @@ export const metadata: Metadata = {
     title: 'Aadhith C J — Software Developer & Full Stack Engineer',
     description:
       'Web, desktop, Android and AI-powered applications built from concept to deployment.',
+    url: 'https://aadhithcj.vercel.app',
+    siteName: 'Aadhith C J Portfolio',
+    images: [
+      {
+        url: '/og-image.png', // Points to public/og-image.png
+        width: 1200,
+        height: 630,
+        alt: 'Aadhith C J Logo',
+      },
+    ],
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Aadhith C J — Software Developer & Full Stack Engineer',
+    description:
+      'Web, desktop, Android and AI-powered applications built from concept to deployment.',
+    images: ['/og-image.png'],
   },
   icons: {
     icon: [
@@ -37,6 +55,7 @@ export const metadata: Metadata = {
         type: 'image/svg+xml',
       },
     ],
+    apple: botSvgUri,
   },
 }
 
