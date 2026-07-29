@@ -2,13 +2,13 @@
 
 import SectionHeading from "@/components/section-heading"
 import { profile } from "@/lib/portfolio-data"
-import { Mail, GitBranch, Briefcase, FileText, ArrowUpRight } from "lucide-react"
+import { Mail, GitBranch, Briefcase, FileText, ArrowUpRight, Instagram } from "lucide-react"
 
-// Updated links object directly with your contact details
 const contact = {
   email: "aadhithcj9@gmail.com",
   github: "https://github.com/aadhithcj",
   linkedin: "https://linkedin.com/in/aadhithcj",
+  instagram: "https://www.instagram.com/aaaaadhith",
   resumeUrl: "/Resumee.pdf",
 }
 
@@ -16,6 +16,7 @@ const links = [
   { key: "email", label: "Email", icon: Mail, href: contact.email ? `mailto:${contact.email}` : "", bg: "bg-primary" },
   { key: "github", label: "GitHub", icon: GitBranch, href: contact.github, bg: "bg-card" },
   { key: "linkedin", label: "LinkedIn", icon: Briefcase, href: contact.linkedin, bg: "bg-secondary" },
+  { key: "instagram", label: "Instagram", icon: Instagram, href: contact.instagram, bg: "bg-card" },
   { key: "resume", label: "Résumé", icon: FileText, href: contact.resumeUrl, bg: "bg-card" },
 ]
 
