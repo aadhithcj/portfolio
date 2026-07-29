@@ -63,15 +63,19 @@ export default function TargetCursor({
 const [isMobile, setIsMobile] = useState(false)
 
 useEffect(() => {
-  const media = window.matchMedia("(hover: none), (pointer: coarse)")
+  const mediaQuery = window.matchMedia("(hover: none), (pointer: coarse)")
 
-  const update = () => setIsMobile(media.matches)
+  const update = () => {
+    setIsMobile(mediaQuery.matches)
+  }
 
   update()
 
-  media.addEventListener("change", update)
+  mediaQuery.addEventListener("change", update)
 
-  return () => media.removeEventListener("change", update)
+  return () => {
+    mediaQuery.removeEventListener("change", update)
+  }
 }, [])
 
   const constants = useMemo(() => ({ borderWidth: 3, cornerSize: 12 }), [])
