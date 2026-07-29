@@ -2,7 +2,27 @@
 
 import SectionHeading from "@/components/section-heading"
 import { profile } from "@/lib/portfolio-data"
-import { Mail, GitBranch, Briefcase, FileText, ArrowUpRight, Instagram } from "lucide-react"
+import { Mail, GitBranch, Briefcase, FileText, ArrowUpRight } from "lucide-react"
+
+// Inline Instagram SVG component matching Lucide's 24x24 pixel grid & stroke styling
+const InstagramIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+)
 
 const contact = {
   email: "aadhithcj9@gmail.com",
@@ -16,7 +36,7 @@ const links = [
   { key: "email", label: "Email", icon: Mail, href: contact.email ? `mailto:${contact.email}` : "", bg: "bg-primary" },
   { key: "github", label: "GitHub", icon: GitBranch, href: contact.github, bg: "bg-card" },
   { key: "linkedin", label: "LinkedIn", icon: Briefcase, href: contact.linkedin, bg: "bg-secondary" },
-  { key: "instagram", label: "Instagram", icon: Instagram, href: contact.instagram, bg: "bg-card" },
+  { key: "instagram", label: "Instagram", icon: InstagramIcon, href: contact.instagram, bg: "bg-card" },
   { key: "resume", label: "Résumé", icon: FileText, href: contact.resumeUrl, bg: "bg-card" },
 ]
 
@@ -74,7 +94,7 @@ export default function ContactSection() {
       <footer className="border-t-[3px] border-border bg-card">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-6">
           <div className="flex flex-col gap-2">
-            <p className="font-mono text-[11px] font-bold uppercase tracking-widest">
+            <p suppressHydrationWarning className="font-mono text-[11px] font-bold uppercase tracking-widest">
               © {new Date().getFullYear()} {profile.name}
             </p>
             <div className="flex gap-2">
