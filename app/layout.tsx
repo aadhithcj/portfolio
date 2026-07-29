@@ -31,14 +31,6 @@ export const metadata: Metadata = {
       'Web, desktop, Android and AI-powered applications built from concept to deployment.',
     url: 'https://aadhithcj.vercel.app',
     siteName: 'Aadhith C J Portfolio',
-    images: [
-      {
-        url: '/og-image.png', // Points to public/og-image.png
-        width: 1200,
-        height: 630,
-        alt: 'Aadhith C J Logo',
-      },
-    ],
     type: 'website',
   },
   twitter: {
@@ -46,7 +38,6 @@ export const metadata: Metadata = {
     title: 'Aadhith C J — Software Developer & Full Stack Engineer',
     description:
       'Web, desktop, Android and AI-powered applications built from concept to deployment.',
-    images: ['/og-image.png'],
   },
   icons: {
     icon: [
