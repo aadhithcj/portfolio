@@ -32,12 +32,21 @@ export const metadata: Metadata = {
     url: 'https://aadhithcj.vercel.app',
     siteName: 'Aadhith C J Portfolio',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Aadhith C J',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Aadhith C J — Software Developer & Full Stack Engineer',
     description:
       'Web, desktop, Android and AI-powered applications built from concept to deployment.',
+    images: ['/og-image.png'],
   },
   icons: {
     icon: [
