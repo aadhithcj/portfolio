@@ -4,7 +4,9 @@ import Marquee from "@/components/marquee"
 import AboutSection from "@/components/about-section"
 import SkillsSection from "@/components/skills-section"
 import ProjectsSection from "@/components/projects-section"
-import TerminalSection from "@/components/terminal-section"
+import TimelineSection from "@/components/timeline-section"
+import ResearchSection from "@/components/research-section"
+import BentoSection from "@/components/bento-section"
 import ContactSection from "@/components/contact-section"
 import TargetCursor from "@/components/fx/target-cursor"
 
@@ -31,7 +33,9 @@ export default function Page() {
         <SkillsSection />
         <ProjectsSection />
         <Marquee items={["Concept", "Design", "Build", "Integrate", "Deploy", "Iterate"]} speed={22} />
-        <TerminalSection />
+        <TimelineSection />
+        <ResearchSection />
+        <BentoSection />
         <ContactSection />
       </main>
     </>

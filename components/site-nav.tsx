@@ -3,10 +3,18 @@
 import { useEffect, useState } from "react"
 import { sections } from "@/lib/portfolio-data"
 import { Menu, X } from "lucide-react"
+import { motion, useScroll, useSpring } from "framer-motion"
 
 export default function SiteNav() {
   const [active, setActive] = useState("about")
   const [open, setOpen] = useState(false)
+  
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  })
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,6 +34,10 @@ export default function SiteNav() {
 
   return (
     <header className="sticky top-0 z-50 border-b-[3px] border-border bg-background/95 backdrop-blur">
+      <motion.div
+        className="absolute bottom-[-3px] left-0 right-0 h-[3px] origin-left bg-primary z-50"
+        style={{ scaleX }}
+      />
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3" aria-label="Main">
         <a
           href="#top"

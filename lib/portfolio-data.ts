@@ -1,9 +1,9 @@
 export const profile = {
-  name: "Aadhith C J",
+  name: "Aadhith C Joseph",
   role: "Software Developer / Full Stack Engineer",
   tagline: "Computer Science Engineering graduate building software that solves real-world problems.",
   summary:
-    "I develop web applications, desktop software, Android apps, and AI-powered systems. I enjoy the full development lifecycle — planning and designing an application, implementing features, integrating databases, and deploying complete solutions.",
+    "I develop web applications, desktop software, Android apps, and AI-powered systems. I enjoy the full development lifecycle: planning and designing an application, implementing features, integrating databases, and deploying complete solutions.",
   focus: ["Full Stack Web Development", "Software Engineering", "AI / ML", "Computer Vision"],
 }
 
@@ -79,7 +79,7 @@ export const projects: Project[] = [
       "Smart Object Locator",
     ],
     tech: ["Kotlin", "Jetpack Compose", "TensorFlow Lite", "YOLOv8", "EfficientDet Lite", "Google ML Kit", "OpenCV"],
-    note: "Flagship academic project — multiple AI models integrated into one mobile app with accessibility as the core requirement.",
+    note: "Flagship academic project with multiple AI models integrated into one mobile app with accessibility as the core requirement.",
     flagship: true,
     accent: "#FFD60A",
   },
@@ -148,7 +148,7 @@ export const philosophy = [
   "Whether it is a web app, desktop software, or an AI-powered mobile app, I enjoy understanding how systems work and bringing ideas to life through code.",
 ]
 
-// Fill these in with your real links — empty strings render as "coming soon".
+// Fill these in with your real links. Empty strings render as "coming soon".
 export const contact = {
   email: "",
   github: "",
@@ -160,6 +160,31 @@ export const sections = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "work", label: "Work" },
-  { id: "terminal", label: "Terminal" },
+  { id: "journey", label: "Journey" },
+  { id: "research", label: "Research" },
+  { id: "interests", label: "Interests" },
   { id: "contact", label: "Contact" },
+]
+
+export const timelineItems = [
+  {
+    year: "2026",
+    title: "Graduation",
+    description: "Graduated with a BTech in Computer Science and Engineering. Currently building skills in software engineering, full-stack, and AI/ML.",
+  },
+  {
+    year: "2025 - 2026",
+    title: "Internships & Practical Experience",
+    description: "Gained practical exposure through software development and technical internships/projects working with web, frontend, backend APIs, and UI/UX.",
+  },
+  {
+    year: "2024 - 2026",
+    title: "Technical Projects & Research",
+    description: "Developed RETINA, an AI-powered assistive system for visually impaired users. Co-authored and presented research based on the project at ICFISN 2026.",
+  },
+  {
+    year: "2022 - 2026",
+    title: "Bachelor of Technology",
+    description: "Carmel College of Engineering and Technology. Developed a strong foundation in programming, databases, software engineering, and AI/ML.",
+  },
 ]

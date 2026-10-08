@@ -12,7 +12,7 @@ export default function AboutSection() {
             <p className="text-pretty text-xl font-bold leading-relaxed">
               I'm a Computer Science graduate who enjoys turning ideas into software that solves real-world problems.
             </p>
-            <p className="mt-5 max-w-prose leading-8 text-muted-foreground">
+            <div className="mt-5 max-w-prose leading-8 text-muted-foreground">
               I have experience developing <HoverKeyword text="web applications">
                 <div className="space-y-2">
                   <p className="border-b-2 border-border pb-2 font-bold">
@@ -58,9 +58,9 @@ export default function AboutSection() {
                     <p>Depth Estimation</p>
                   </div>
                 </div>
-              </HoverKeyword>. I enjoy working across the full development lifecycle — from planning and designing an
+              </HoverKeyword>. I enjoy working across the full development lifecycle: from planning and designing an
               application to implementing features, integrating databases, and deploying complete solutions.
-            </p>
+            </div>
             <p className="mt-4 leading-relaxed text-muted-foreground">
               I enjoy continuously improving my skills, experimenting with new technologies, and taking on challenging
               projects that combine modern software engineering with intelligent systems.

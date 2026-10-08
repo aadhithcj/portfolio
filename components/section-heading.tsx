@@ -5,16 +5,17 @@ type SectionHeadingProps = {
   title: string
   kicker?: string
   lowercase?: boolean
+  inverted?: boolean
 }
 
-export default function SectionHeading({ index, title, kicker, lowercase }: SectionHeadingProps) {
+export default function SectionHeading({ index, title, kicker, lowercase, inverted }: SectionHeadingProps) {
   return (
     <div className="flex flex-wrap items-end justify-between gap-4">
       <div className="flex items-center gap-4">
-        <span className="nb-border nb-shadow-sm bg-foreground px-3 py-1.5 font-mono text-sm font-bold text-background">
+        <span className={`nb-border nb-shadow-sm px-3 py-1.5 font-mono text-sm font-bold ${inverted ? 'bg-background text-foreground' : 'bg-foreground text-background'}`}>
           {index}
         </span>
-        <h2 className="text-4xl font-extrabold uppercase tracking-tight md:text-5xl">
+        <h2 className={`text-4xl font-extrabold uppercase tracking-tight md:text-5xl ${inverted ? 'text-background' : ''}`}>
           <DecryptedText
             text={title}
             animateOn="view"
@@ -27,7 +28,7 @@ export default function SectionHeading({ index, title, kicker, lowercase }: Sect
         </h2>
       </div>
       {kicker && (
-        <p className={`nb-border bg-card px-3 py-1.5 font-mono text-[11px] font-bold tracking-widest ${lowercase ? "normal-case" : "uppercase"}`}>
+        <p className={`nb-border px-3 py-1.5 font-mono text-[11px] font-bold tracking-widest ${lowercase ? "normal-case" : "uppercase"} ${inverted ? "bg-background text-foreground" : "bg-card text-foreground"}`}>
           {kicker}
         </p>
       )}

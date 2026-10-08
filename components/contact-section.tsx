@@ -44,7 +44,7 @@ export default function ContactSection() {
   return (
     <section id="contact">
       <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-        <SectionHeading index="05" title="Contact" kicker="Let's build something" />
+        <SectionHeading index="07" title="Contact" kicker="Let's build something" />
 
         <div className="mt-8 grid gap-6 lg:grid-cols-[1.3fr_1fr]">
           <div className="nb-border nb-shadow-lg bg-foreground p-6 text-background md:p-8">
@@ -80,7 +80,7 @@ export default function ContactSection() {
                       className={`cursor-target nb-border nb-shadow nb-press flex w-full items-center gap-3 ${link.bg} px-4 py-4 font-mono text-sm font-bold uppercase tracking-wide`}
                     >
                       <Icon className="size-4" />
-                      {link.label}
+                      {link.key === "email" ? contact.email : link.label}
                       <ArrowUpRight className="ml-auto size-4" />
                     </a>
                   )}

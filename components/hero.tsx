@@ -77,7 +77,7 @@ export default function Hero() {
         </div>
 
         <h1 className="sr-only">
-          {profile.name} — {profile.role}
+          {profile.name} | {profile.role}
         </h1>
 
         {/* Main Grid */}
@@ -150,7 +150,7 @@ export default function Hero() {
             </div>
 
             <p className="nb-border bg-card px-3 py-2 font-mono text-[11px] leading-relaxed">
-              TIP: move your cursor around — the grid reacts. Click anywhere
+              TIP: move your cursor around: the grid reacts. Click anywhere
               for a pulse.
             </p>
           </div>
