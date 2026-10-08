@@ -1,14 +1,10 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { sections } from "@/lib/portfolio-data"
-import { Menu, X } from "lucide-react"
+import { contact, profile } from "@/lib/portfolio-data"
 import { motion, useScroll, useSpring } from "framer-motion"
+import { ArrowUpRight } from "lucide-react"
 
 export default function SiteNav() {
-  const [active, setActive] = useState("about")
-  const [open, setOpen] = useState(false)
-  
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -16,77 +12,59 @@ export default function SiteNav() {
     restDelta: 0.001
   })
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id)
-        })
-      },
-      { rootMargin: "-45% 0px -50% 0px" },
-    )
-    sections.forEach((s) => {
-      const el = document.getElementById(s.id)
-      if (el) observer.observe(el)
-    })
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <header className="sticky top-0 z-50 border-b-[3px] border-border bg-background/95 backdrop-blur">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b-[1px] border-foreground/10 bg-background/95 backdrop-blur-sm hidden md:block">
       <motion.div
-        className="absolute bottom-[-3px] left-0 right-0 h-[3px] origin-left bg-primary z-50"
+        className="absolute bottom-[-1px] left-0 right-0 h-[1px] origin-left bg-primary z-50"
         style={{ scaleX }}
       />
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3" aria-label="Main">
-        <a
-          href="#top"
-          className="cursor-target nb-border nb-shadow-sm nb-press bg-primary px-3 py-1.5 font-mono text-sm font-bold uppercase tracking-tight text-primary-foreground"
-        >
-          ACJ<span className="text-accent">_</span>
-        </a>
+      <nav className="flex items-stretch h-10 w-full" aria-label="Main">
+        {/* Name / Branding Cell */}
+        <div className="flex items-center px-6 border-r-[1px] border-foreground/10">
+          <a
+            href="#top"
+            className="cursor-target font-mono text-[10px] font-bold uppercase tracking-widest text-foreground hover:text-primary transition-colors"
+          >
+            {profile.name}
+          </a>
+        </div>
+        
+        {/* Spacer Cell */}
+        <div className="flex-1 border-r-[1px] border-foreground/10 flex items-center px-6">
+          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
+             SOFTWARE ENGINEER // PORTFOLIO '26
+          </span>
+        </div>
 
-        <ul className="hidden items-center gap-2 md:flex">
-          {sections.map((s) => (
-            <li key={s.id}>
-              <a
-                href={`#${s.id}`}
-                className={`cursor-target nb-border nb-press block px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-wide ${
-                  active === s.id ? "bg-foreground text-background" : "bg-card nb-shadow-sm"
-                }`}
-              >
-                {s.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-label="Toggle navigation"
-          className="cursor-target nb-border nb-shadow-sm nb-press bg-secondary p-2 md:hidden"
-        >
-          {open ? <X className="size-4" /> : <Menu className="size-4" />}
-        </button>
+        {/* Global Links Cells */}
+        <div className="flex items-stretch">
+          <a
+            href={contact.github}
+            target="_blank"
+            rel="noreferrer"
+            className="cursor-target flex items-center justify-center px-6 border-r-[1px] border-foreground/10 font-mono text-[9px] font-bold uppercase tracking-widest hover:bg-foreground hover:text-background transition-colors"
+          >
+            GITHUB
+          </a>
+          <a
+            href={contact.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="cursor-target flex items-center justify-center px-6 border-r-[1px] border-foreground/10 font-mono text-[9px] font-bold uppercase tracking-widest hover:bg-foreground hover:text-background transition-colors"
+          >
+            LINKEDIN
+          </a>
+          <a
+            href={contact.resumeUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="cursor-target flex items-center justify-center px-6 font-mono text-[9px] font-bold uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 transition-colors gap-2"
+          >
+            RÉSUMÉ <ArrowUpRight size={12} />
+          </a>
+        </div>
       </nav>
-
-      {open && (
-        <ul className="grid gap-2 border-t-[3px] border-border bg-card px-4 py-3 md:hidden">
-          {sections.map((s) => (
-            <li key={s.id}>
-              <a
-                href={`#${s.id}`}
-                onClick={() => setOpen(false)}
-                className="nb-border nb-shadow-sm block px-3 py-2 font-mono text-sm font-bold uppercase"
-              >
-                {s.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
     </header>
   )
 }
+

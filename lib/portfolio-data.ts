@@ -1,23 +1,22 @@
 export const profile = {
   name: "Aadhith C Joseph",
   role: "Software Developer / Full Stack Engineer",
-  tagline: "Computer Science Engineering graduate building software that solves real-world problems.",
+  tagline: "Computer Science Engineering graduate with hands-on experience in full-stack development and AI/ML.",
   summary:
-    "I develop web applications, desktop software, Android apps, and AI-powered systems. I enjoy the full development lifecycle: planning and designing an application, implementing features, integrating databases, and deploying complete solutions.",
-  focus: ["Full Stack Web Development", "Software Engineering", "AI / ML", "Computer Vision"],
+    "I develop web applications, desktop software, Android apps, and AI-powered systems. I have practical DevOps experience with Linux, Git, Docker, and CI/CD pipelines, and I'm interested in software engineering, backend development, cloud technologies, and automation.",
+  focus: ["Full Stack Development", "Backend Engineering", "AI / ML", "DevOps"],
 }
 
 export const interests = [
-  "Full Stack Web Development",
   "Software Engineering",
+  "Backend Development",
+  "Cloud Technologies",
+  "Automation",
+  "Full Stack Web Development",
   "Artificial Intelligence",
   "Machine Learning",
   "Computer Vision",
-  "Backend Development",
-  "Frontend Development",
-  "Mobile Application Development",
   "Database Design",
-  "Human-Centered Software",
 ]
 
 export type SkillGroup = {
@@ -27,26 +26,26 @@ export type SkillGroup = {
 }
 
 export const skillGroups: SkillGroup[] = [
-  { id: "languages", label: "Languages", items: ["Python", "Java", "C", "TypeScript", "JavaScript"] },
+  { id: "languages", label: "Languages", items: ["Python", "Java", "C", "TypeScript", "JavaScript", "SQL"] },
   { id: "frontend", label: "Frontend", items: ["React", "Vite", "HTML5", "CSS3", "Tailwind CSS"] },
-  { id: "backend", label: "Backend", items: ["Flask", "REST APIs", "Supabase", "PostgreSQL", "SQLite"] },
+  { id: "backend", label: "Backend & DB", items: ["Flask", "REST APIs", "Supabase", "PostgreSQL", "SQLite"] },
+  {
+    id: "devops",
+    label: "DevOps & Tools",
+    items: ["Linux", "Git", "GitHub", "GitHub Actions", "Docker", "Docker Compose", "CI/CD", "pytest"],
+  },
   {
     id: "ai",
     label: "AI / ML",
     items: [
-      "TensorFlow Lite",
       "OpenCV",
-      "Google ML Kit",
+      "TensorFlow Lite",
       "YOLO",
-      "EfficientDet",
+      "Google ML Kit",
       "Computer Vision",
-      "OCR",
-      "Image Processing",
     ],
   },
-  { id: "mobile", label: "Mobile", items: ["Android Studio", "Kotlin", "Jetpack Compose"] },
-  { id: "tools", label: "Tools", items: ["Git", "GitHub", "Figma", "Framer", "Firebase"] },
-  { id: "creative", label: "Creative", items: ["Adobe Premiere Pro", "Adobe After Effects"] },
+  { id: "core", label: "Core CS", items: ["OOP", "Data Structures", "DBMS"] },
 ]
 
 export type Project = {
@@ -66,68 +65,69 @@ export const projects: Project[] = [
   {
     id: "retina",
     index: "01",
-    title: "RETINA",
-    kind: "Android · AI Assistive System",
+    title: "RETINA - AI Assistive System",
+    kind: "Android · Computer Vision",
     blurb:
-      "An AI powered assistive Android application that helps visually impaired users perform everyday tasks using computer vision and on-device machine learning.",
+      "Developed an assistive Android application for visually impaired users using object detection, OCR, currency recognition, and audio feedback.",
     features: [
       "Real-time Object Detection",
       "Indian Currency Recognition",
       "OCR Text Reader",
       "Text-to-Speech",
-      "Obstacle Detection",
-      "Smart Object Locator",
+      "Obstacle Detection & Navigation",
     ],
-    tech: ["Kotlin", "Jetpack Compose", "TensorFlow Lite", "YOLOv8", "EfficientDet Lite", "Google ML Kit", "OpenCV"],
+    tech: ["Kotlin", "Android", "Computer Vision", "Machine Learning"],
     note: "Flagship academic project with multiple AI models integrated into one mobile app with accessibility as the core requirement.",
     flagship: true,
     accent: "#FFD60A",
   },
   {
-    id: "cv-management",
+    id: "inventory",
     index: "02",
-    title: "CV Management System",
-    kind: "Web · Recruitment Platform",
-    blurb: "A web-based recruitment and candidate management platform for handling resumes end to end.",
-    features: [
-      "Resume Management",
-      "Candidate Scoring",
-      "Interview Scheduling",
-      "Role-Based Access",
-      "Reporting Dashboard",
-    ],
-    tech: ["React", "Vite", "Supabase", "PostgreSQL"],
-    accent: "#FF3B3B",
+    title: "Inventory Management System",
+    kind: "Desktop · Dealership Software",
+    blurb: "Developed a desktop inventory system for a motorbike shop supporting stock tracking, part locations, pricing, and purchase/customer billing.",
+    features: ["Stock Tracking", "Part Locations", "Pricing Management", "Purchase Billing", "Customer Billing"],
+    tech: ["Python", "PyQt6", "SQLite"],
+    note: "Designed the system to manage 100+ inventory records per day and streamline daily operations.",
+    accent: "#0066FF",
   },
   {
-    id: "motorbike",
+    id: "devopshub",
     index: "03",
-    title: "Motorbike Inventory Management",
-    kind: "Desktop · Dealership Software",
-    blurb: "A desktop software solution designed for motorcycle dealerships to run daily operations.",
-    features: ["Inventory Management", "Billing", "Purchase Management", "Customer Records", "Database Management"],
-    tech: ["Python", "PyQt6", "SQLite"],
-    accent: "#0066FF",
+    title: "DevOpsHub",
+    kind: "Web · Full Stack · CI/CD",
+    blurb: "Built and containerized a full-stack Flask, React, and PostgreSQL application using Docker Compose.",
+    features: [
+      "Containerized Architecture",
+      "Git Workflows",
+      "Automated Testing (pytest)",
+      "Frontend Builds with GitHub Actions",
+      "Environment-based Configuration",
+      "Secure Secrets Management",
+    ],
+    tech: ["Python", "Flask", "React", "PostgreSQL", "Docker", "GitHub Actions"],
+    accent: "#FF7A00",
   },
   {
     id: "crop",
     index: "04",
-    title: "Crop Intelligence Platform",
+    title: "Crop Recommendation System",
     kind: "Web · Machine Learning",
-    blurb: "A machine learning powered agricultural web application for data-driven crop decisions.",
-    features: ["Crop Recommendation", "Rainfall Analysis", "Crop Prediction", "Yield Prediction", "Interactive Maps"],
-    tech: ["React", "Flask", "Machine Learning"],
+    blurb: "Built a web-based crop recommendation system using React, Flask, weather data, and historical agricultural data.",
+    features: ["Crop Recommendation", "Model Training & Evaluation", "Data Preprocessing"],
+    tech: ["Python", "Flask", "React", "Machine Learning"],
     accent: "#00C853",
   },
   {
-    id: "lineplanner",
+    id: "cv-management",
     index: "05",
-    title: "LinePlanner",
-    kind: "Web · Manufacturing",
-    blurb: "A web application developed for garment manufacturing production planning.",
-    features: ["Production Line Planning", "Capacity Planning", "Interactive Layout Management"],
-    tech: ["React", "Web Technologies"],
-    accent: "#FF7A00",
+    title: "CV Sorting & Management System",
+    kind: "Web · Recruitment Platform",
+    blurb: "Developed a web platform for job posting and resume management with automated filtering and skill-based candidate organization.",
+    features: ["Job Posting", "Resume Management", "Automated Filtering", "Skill-based Organization"],
+    tech: ["React", "Supabase"],
+    accent: "#FF3B3B",
   },
 ]
 
@@ -148,12 +148,13 @@ export const philosophy = [
   "Whether it is a web app, desktop software, or an AI-powered mobile app, I enjoy understanding how systems work and bringing ideas to life through code.",
 ]
 
-// Fill these in with your real links. Empty strings render as "coming soon".
 export const contact = {
-  email: "",
-  github: "",
-  linkedin: "",
-  resumeUrl: "",
+  email: "aadhithcj9@gmail.com",
+  github: "https://github.com/aadhithcj",
+  linkedin: "https://linkedin.com/in/aadhithcj",
+  phone: "9495268368",
+  website: "aadhithcj.vercel.app",
+  resumeUrl: "/Resumee.pdf",
 }
 
 export const sections = [
@@ -168,23 +169,23 @@ export const sections = [
 
 export const timelineItems = [
   {
-    year: "2026",
-    title: "Graduation",
-    description: "Graduated with a BTech in Computer Science and Engineering. Currently building skills in software engineering, full-stack, and AI/ML.",
+    year: "Jan 2025 - Feb 2025",
+    title: "AI/ML Intern | ICT Academy of Kerala",
+    description: "Completed a one-month internship focused on Artificial Intelligence and Machine Learning. Collaborated with a four-member team to develop and test a prototype across 5+ real-world datasets.",
   },
   {
-    year: "2025 - 2026",
-    title: "Internships & Practical Experience",
-    description: "Gained practical exposure through software development and technical internships/projects working with web, frontend, backend APIs, and UI/UX.",
+    year: "2022 - Present",
+    title: "Freelance Web & Software Developer",
+    description: "Developed and delivered 4+ freelance web and software projects, building responsive web applications, backend services, database integrations, and custom software solutions based on client requirements.",
   },
   {
-    year: "2024 - 2026",
-    title: "Technical Projects & Research",
-    description: "Developed RETINA, an AI-powered assistive system for visually impaired users. Co-authored and presented research based on the project at ICFISN 2026.",
+    year: "2021 - Present",
+    title: "Freelance Designer & Video Editor",
+    description: "Delivered 5+ UI/UX projects and edited 50+ social media videos contributing to campaigns generating 100K+ interactions.",
   },
   {
     year: "2022 - 2026",
-    title: "Bachelor of Technology",
-    description: "Carmel College of Engineering and Technology. Developed a strong foundation in programming, databases, software engineering, and AI/ML.",
+    title: "B.Tech in Computer Science and Engineering",
+    description: "Carmel College of Engineering and Technology (CGPA: 8.12). Additionally served as College Arts Secretary (2025-2026) coordinating 3+ major events. Secured 1st place at IEEEXtreme 17.0 (2023).",
   },
 ]

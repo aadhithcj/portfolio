@@ -9,13 +9,17 @@ import ResearchSection from "@/components/research-section"
 import BentoSection from "@/components/bento-section"
 import ContactSection from "@/components/contact-section"
 import TargetCursor from "@/components/fx/target-cursor"
+import TechnicalRuler from "@/components/technical-ruler"
+import SectionIndicator from "@/components/section-indicator"
 
 export default function Page() {
   return (
     <>
       <TargetCursor spinDuration={2.4} hideDefaultCursor parallaxOn cursorColor="#ffffff" />
+      <SectionIndicator />
+      <TechnicalRuler />
       <SiteNav />
-      <main>
+      <main className="pr-0 md:pr-12"> {/* Space for ruler on desktop */}
         <Hero />
         <Marquee
           items={[
@@ -41,3 +45,4 @@ export default function Page() {
     </>
   )
 }
+
